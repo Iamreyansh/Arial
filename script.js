@@ -2,56 +2,72 @@ const panorama = pannellum.viewer('panorama', {
     "type": "equirectangular",
     "panorama": "360_deg_image_R2.jpg",
     "autoLoad": true,
+    "showControls": false,
     "autoRotate": -5,
     "hotSpots": [
         {
             "pitch": -2.1,
             "yaw": 132.9,
             "type": "info",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Living Room"
+            "createTooltipFunc": createHotSpot('hotspots/Hospital_Manipal.png'),
+            "createTooltipArgs": "Hospital Manipal"
         },
         {
             "pitch": -0.9,
             "yaw": -171.2,
             "type": "info",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Dining Area"
+            "createTooltipFunc": createHotSpot('hotspots/Mall_Nexus.png'),
+            "createTooltipArgs": "Mall Nexus"
         },
         {
             "pitch": -10,
             "yaw": -100,
             "type": "info",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Kitchen"
+            "createTooltipFunc": createHotSpot('hotspots/School_DPS.png'),
+            "createTooltipArgs": "School DPS"
         },
         {
             "pitch": 0,
             "yaw": 0,
             "type": "scene",
             "sceneId": "entrance",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Entrance"
+            "createTooltipFunc": createHotSpot('hotspots/Tech_Hope.png'),
+            "createTooltipArgs": "Tech Hope"
         },
         {
             "pitch": 10,
             "yaw": 50,
             "type": "info",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Stairs"
+            "createTooltipFunc": createHotSpot('hotspots/Travel_Kia.png'),
+            "createTooltipArgs": "Travel KIA"
         }
     ]
 });
 
-function hotspot(hotSpotDiv, args) {
-    hotSpotDiv.classList.add('custom-hotspot');
-    const span = document.createElement('span');
-    span.innerHTML = args;
-    hotSpotDiv.appendChild(span);
-    span.style.width = span.scrollWidth - 20 + 'px';
-    span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
-    span.style.marginTop = -span.scrollHeight - 12 + 'px';
+function createHotSpot(imagePath) {
+    return function hotspot(hotSpotDiv, args) {
+        // Remove default Pannellum classes
+        hotSpotDiv.classList.remove('pnlm-hotspot', 'pnlm-sprite', 'pnlm-scene', 'pnlm-info');
+
+        // Add custom class
+        hotSpotDiv.classList.add('custom-hotspot');
+
+
+        const div = document.createElement('div');
+        div.classList.add('hotspot-container');
+
+        // Create image element
+        const img = document.createElement('img');
+        img.src = imagePath;
+        img.alt = args;
+        img.classList.add('hotspot-image');
+
+        div.appendChild(img);
+        hotSpotDiv.appendChild(div);
+
+    }
 }
+
 
 document.getElementById('zoom-in').addEventListener('click', () => {
     panorama.setHfov(panorama.getHfov() - 30);
@@ -79,6 +95,12 @@ document.getElementById('nav-left').addEventListener('click', () => {
 
 document.getElementById('nav-right').addEventListener('click', () => {
     panorama.setYaw(panorama.getYaw() + 10);
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+    panorama.setYaw(0);
+    panorama.setPitch(0);
+    panorama.setHfov(100);
 });
 
 let inactivityTimer;
