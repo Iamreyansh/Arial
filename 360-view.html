@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Life on the Green - 360 View</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="rotate-prompt">
+			<p>Please rotate your device to landscape mode.</p>
+		</div>
+
+		<a href="index.html">
+			<img id="logo" src="logo.png" alt="Logo" />
+		</a>
+
+		<div id="panorama"></div>
+
+		<!-- <div id="sidetab">
+			<div class="sidetab-content">
+				<span class="close-btn">&times;</span>
+				<h2></h2>
+				<p></p>
+			</div>
+		</div> -->
+
+		<div class="buttons">
+			<button id="reset"><i class="fas fa-sync-alt"></i></button>
+			<button id="zoom-out"><i class="fas fa-search-minus"></i></button>
+			<div class="nav-buttons">
+				<button id="nav-up"><i class="fas fa-arrow-up"></i></button>
+				<button id="nav-down"><i class="fas fa-arrow-down"></i></button>
+				<button id="nav-left"><i class="fas fa-arrow-left"></i></button>
+				<button id="nav-right"><i class="fas fa-arrow-right"></i></button>
+			</div>
+			<button id="zoom-in"><i class="fas fa-search-plus"></i></button>
+			<button id="fullscreen"><i class="fas fa-expand"></i></button>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
