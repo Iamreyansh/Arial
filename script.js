@@ -13,8 +13,8 @@ const panorama = pannellum.viewer('panorama', {
             "createTooltipArgs": "Hospital Manipal"
         },
         {
-            "pitch": -0.9,
-            "yaw": -171.2,
+            "pitch": -14.915616362436632,
+            "yaw": 25.756312492753022,
             "type": "info",
             "createTooltipFunc": createHotSpot('hotspots/Mall_Nexus.png'),
             "createTooltipArgs": "Mall Nexus"
@@ -113,15 +113,15 @@ function startInactivityTimer() {
     }, 5000); // 5 seconds of inactivity
 }
 
-panorama.on('mousedown', () => {
-    startInactivityTimer();
-});
-
 const sidetab = document.getElementById('sidetab');
 const closeBtn = document.querySelector('.close-btn');
 
 panorama.on('mousedown', (event) => {
+    // Pause auto-rotate for 5 seconds on any click
+    startInactivityTimer();
+
     const coords = panorama.mouseEventToCoords(event);
+    console.log('Pitch:', coords[0], 'Yaw:', coords[1]);
     const hotspot = panorama.getHotSpot(coords);
     if (hotspot && hotspot.sceneId) {
         sidetab.querySelector('h2').innerText = hotspot.text;
