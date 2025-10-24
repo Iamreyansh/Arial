@@ -70,6 +70,7 @@ function createHotSpot(imagePath) {
 
 
 document.getElementById('zoom-in').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.setHfov(panorama.getHfov() - 30);
 });
 
@@ -78,26 +79,32 @@ document.getElementById('zoom-out').addEventListener('click', () => {
 });
 
 document.getElementById('fullscreen').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.toggleFullscreen();
 });
 
 document.getElementById('nav-up').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.setPitch(panorama.getPitch() + 20);
 });
 
 document.getElementById('nav-down').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.setPitch(panorama.getPitch() - 20);
 });
 
 document.getElementById('nav-left').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.setYaw(panorama.getYaw() - 20);
 });
 
 document.getElementById('nav-right').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.setYaw(panorama.getYaw() + 10);
 });
 
 document.getElementById('reset').addEventListener('click', () => {
+    startInactivityTimer();
     panorama.setYaw(0);
     panorama.setPitch(0);
     panorama.setHfov(100);

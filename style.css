@@ -133,7 +133,6 @@ body {
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 	gap: 5px;
-	margin-right: 10px;
 }
 
 #nav-up {
@@ -159,6 +158,7 @@ button {
 	border: none;
 	padding: 10px 15px;
 	margin-left: 5px;
+	margin-right: 5px;
 	cursor: pointer;
 	border-radius: 5px;
 }
