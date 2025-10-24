@@ -103,8 +103,17 @@ document.getElementById('reset').addEventListener('click', () => {
     panorama.setHfov(100);
 });
 
-let inactivityTimer;
 
+const sidetab = document.getElementById('sidetab');
+
+panorama.on('mousedown', (event) => {
+    // Pause auto-rotate for 5 seconds on any click
+    startInactivityTimer();
+    const coords = panorama.mouseEventToCoords(event);
+    console.log('Pitch:', coords[0], 'Yaw:', coords[1]);
+});
+
+let inactivityTimer;
 function startInactivityTimer() {
     clearTimeout(inactivityTimer);
     panorama.stopAutoRotate();
@@ -113,23 +122,3 @@ function startInactivityTimer() {
     }, 5000); // 5 seconds of inactivity
 }
 
-const sidetab = document.getElementById('sidetab');
-const closeBtn = document.querySelector('.close-btn');
-
-panorama.on('mousedown', (event) => {
-    // Pause auto-rotate for 5 seconds on any click
-    startInactivityTimer();
-
-    const coords = panorama.mouseEventToCoords(event);
-    console.log('Pitch:', coords[0], 'Yaw:', coords[1]);
-    const hotspot = panorama.getHotSpot(coords);
-    if (hotspot && hotspot.sceneId) {
-        sidetab.querySelector('h2').innerText = hotspot.text;
-        sidetab.querySelector('p').innerText = "More information about the " + hotspot.text;
-        sidetab.style.right = '0';
-    }
-});
-
-closeBtn.addEventListener('click', () => {
-    sidetab.style.right = '-400px';
-});

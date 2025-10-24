@@ -136,4 +136,13 @@ button:hover {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+/* Show rotate prompt on mobile devices in portrait orientation */
+@media screen and (max-width: 980px) and (orientation: portrait) {
+	#rotate-prompt {
+		display: block !important;
+	}
 }
