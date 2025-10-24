@@ -3,7 +3,7 @@ const panorama = pannellum.viewer('panorama', {
     "panorama": "360_deg_image_R2.jpg",
     "autoLoad": true,
     "showControls": false,
-    "autoRotate": -5,
+    "autoRotate": -7.5,
     "hotSpots": [
         {
             "pitch": -2.1,
@@ -70,8 +70,8 @@ function createHotSpot(imagePath) {
 
 
 document.getElementById('zoom-in').addEventListener('click', () => {
-    startInactivityTimer();
     panorama.setHfov(panorama.getHfov() - 30);
+    startInactivityTimer();
 });
 
 document.getElementById('zoom-out').addEventListener('click', () => {
@@ -79,35 +79,35 @@ document.getElementById('zoom-out').addEventListener('click', () => {
 });
 
 document.getElementById('fullscreen').addEventListener('click', () => {
-    startInactivityTimer();
     panorama.toggleFullscreen();
+    startInactivityTimer();
 });
 
 document.getElementById('nav-up').addEventListener('click', () => {
+    panorama.setPitch(panorama.getPitch() + 25);
     startInactivityTimer();
-    panorama.setPitch(panorama.getPitch() + 20);
 });
 
 document.getElementById('nav-down').addEventListener('click', () => {
+    panorama.setPitch(panorama.getPitch() - 25);
     startInactivityTimer();
-    panorama.setPitch(panorama.getPitch() - 20);
 });
 
 document.getElementById('nav-left').addEventListener('click', () => {
+    panorama.setYaw(panorama.getYaw() - 25);
     startInactivityTimer();
-    panorama.setYaw(panorama.getYaw() - 20);
 });
 
 document.getElementById('nav-right').addEventListener('click', () => {
+    panorama.setYaw(panorama.getYaw() + 25);
     startInactivityTimer();
-    panorama.setYaw(panorama.getYaw() + 10);
 });
 
 document.getElementById('reset').addEventListener('click', () => {
-    startInactivityTimer();
     panorama.setYaw(0);
     panorama.setPitch(0);
     panorama.setHfov(100);
+    startInactivityTimer();
 });
 
 
