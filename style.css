@@ -209,9 +209,9 @@ button:hover {
 
 .custom-hotspot .hotspot-container img {
 	position: absolute;
-	left: 0;
+	left: -10px;
 	right: 0;
-	bottom: 100%;
+	bottom: calc(100% - 10px);
 	margin: auto;
 	width: 200px;
 	height: 200px;
