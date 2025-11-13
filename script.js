@@ -3,7 +3,7 @@ const panorama = pannellum.viewer('panorama', {
     "panorama": "360_deg_image_R2.jpg",
     "autoLoad": true,
     "showControls": false,
-    "autoRotate": 0,//-7.5,
+    "autoRotate": -7.5,
     "hotSpots": [
         {
             "pitch": -0.017358559279128116,
