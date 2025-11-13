@@ -3,7 +3,7 @@ const panorama = pannellum.viewer('panorama', {
     "panorama": "360_deg_image_R2.jpg",
     "autoLoad": true,
     "showControls": false,
-    "autoRotate": -7.5,
+    "autoRotate": 0,//-7.5,
     "hotSpots": [
         {
             "pitch": -0.017358559279128116,
@@ -158,6 +158,41 @@ const panorama = pannellum.viewer('panorama', {
             "type": "info",
             "createTooltipFunc": createHotSpot('hotspots/Travel_Whitefield.png'),
             "createTooltipArgs": "Travel Whitefield"
+        },
+        {
+            "pitch":   -3.3175965927236413,
+            "yaw": -38.307100032423934,
+            "type": "info",
+            "createTooltipFunc": createHotSpot('hotspots/Travel_Tin factory.png'),
+            "createTooltipArgs": "Tin Factory Metro"
+        },
+        {
+            "pitch": -4.904340514344209,
+            "yaw": -133.86956502213587,
+            "type": "info",
+            "createTooltipFunc": createHotSpot('hotspots/Travel_STRR.png'),
+            "createTooltipArgs": "STRR"
+        },
+        {
+            "pitch": -0.5390682264661188,
+            "yaw": -83.90297888952136,
+            "type": "info",
+            "createTooltipFunc": createHotSpot('hotspots/Travel_KR Pura.png'),
+            "createTooltipArgs": "KR Puram Metro"
+        },
+        {
+            "pitch": -2.5390682264661188,
+            "yaw": -81.90297888952136,
+            "type": "info",
+            "createTooltipFunc": createHotSpot('hotspots/Travel_KR Pura Railway.png'),
+            "createTooltipArgs": "KR Puram Railway"
+        },
+        {
+            "pitch": -1.902336599067687,
+            "yaw": -63.90734617901585,
+            "type": "info",
+            "createTooltipFunc": createHotSpot('hotspots/Extra_Atal Garden.png'),
+            "createTooltipArgs": "Atal Bihari Botanical"
         }
     ]
 });
